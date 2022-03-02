@@ -1,8 +1,7 @@
 import React, { useState, useReducer } from "react";
 import { login } from "../utils/login_utils";
 
-
-// 1. Create a Reducer function 
+// 1. Create a Reducer function
 function loginReducer(state, action) {
   switch (action.type) {
     case "field": {
@@ -110,49 +109,63 @@ function login_page() {
 
       {isLoggedIn ? (
         <>
-          <p>You are Logged In</p>
-          <button
-            onClick={() => {
-              // setLoggedIn(false)
-              dispatch({ type: "logout" });
-            }}
-          >
-            Log Out
-          </button>
+          <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+            <h1 class="flex-auto text-lg font-semibold text-slate-900 m-3">
+              Welcome {email}
+            </h1>
+            <button
+              class="h-10 px-6 font-semibold rounded-md bg-black text-white m-6"
+              onClick={() => {
+                // setLoggedIn(false)
+                dispatch({ type: "logout" });
+              }}
+            >
+              Log Out
+            </button>
+          </div>
         </>
       ) : (
         <form onSubmit={form_submit}>
-          <p>LoginForm</p>
-          <input
-            type="text"
-            name="email"
-            placeholder="email"
-            onChange={(e) =>
-              dispatch({
-                type: "field",
-                field: "email",
-                value: e.currentTarget.value,
-              })
-            }
-            value={email}
-          ></input>
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            onChange={(e) =>
-              dispatch({
-                type: "field",
-                field: "password",
-                value: e.currentTarget.value,
-              })
-            }
-            value={password}
-          ></input>
-          <button type="submit">
-            {" "}
-            {isLoading ? "Logging in...." : "Log in"}
-          </button>
+          <div class="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
+            <h1 class="flex-auto text-lg font-semibold text-slate-900 m-3">
+              Login With Reducer
+            </h1>
+            <input
+              class="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900 m-1"
+              type="text"
+              name="email"
+              placeholder="email"
+              onChange={(e) =>
+                dispatch({
+                  type: "field",
+                  field: "email",
+                  value: e.currentTarget.value,
+                })
+              }
+              value={email}
+            ></input>
+            <input
+              class="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900 m-1"
+              type="password"
+              name="password"
+              placeholder="password"
+              onChange={(e) =>
+                dispatch({
+                  type: "field",
+                  field: "password",
+                  value: e.currentTarget.value,
+                })
+              }
+              value={password}
+            ></input>
+            <button
+              class="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900 m-6"
+              type="submit"
+            >
+              {" "}
+              {isLoading ? "Logging in...." : "Log in"}
+            </button>
+          </div>
         </form>
       )}
     </div>
