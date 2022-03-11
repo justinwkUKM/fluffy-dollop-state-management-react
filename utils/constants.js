@@ -1,0 +1,5 @@
+export const ACTION_TYPE_LOGIN = "login"
+export const ACTION_TYPE_SUCCESS = "success"
+export const ACTION_TYPE_LOGOUT = "logout"
+export const ACTION_TYPE_ERROR = "error"
+export const ACTION_TYPE_FIELD = "field"

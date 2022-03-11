@@ -26,6 +26,9 @@ function login_page() {
       // is resolved - success
     } catch (error) {
       setError("Incorrect credentials");
+      setEmail("")
+      setPassword("")
+      setLoggedIn(false)
       // do nothing
     }
 
